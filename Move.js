@@ -62,32 +62,17 @@ function moveBishop(row, column) {
 function moveRook(row, column) {
     var possibleMoves = [];
 
-    //position in rigth
-    for (let i = row + 1; i < SIZE; i++) {
+    for(let i =0;i< SIZE; i++){
         possibleRow = i;
         possibleColumn = column;
-        possibleMoves.push({ possibleRow, possibleColumn });
-    }
-
-    //postion in left
-    for (let i = row - 1; i > -1; i--) {
-        possibleRow = i;
-        possibleColumn = column;
-        possibleMoves.push({ possibleRow, possibleColumn });
-    }
-
-    //position in upward direction
-    for (let j = column + 1; j < SIZE; j++) {
+        if(!(possibleRow === row && possibleColumn ==column)){
+            possibleMoves.push({possibleRow,possibleColumn})
+        }
         possibleRow = row;
-        possibleColumn = j;
-        possibleMoves.push({ possibleRow, possibleColumn });
-    }
-
-    //position in downward direction
-    for (let j = column - 1; j > -1; j--) {
-        possibleRow = row;
-        possibleColumn = j;
-        possibleMoves.push({ possibleRow, possibleColumn });
+        possibleColumn = i;
+        if(!(possibleRow === row && possibleColumn ==column)){
+            possibleMoves.push({possibleRow,possibleColumn})
+        }
     }
     // console.log(possibleMoves);
     return possibleMoves;
